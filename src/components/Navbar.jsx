@@ -13,6 +13,9 @@ function Navbar() {
             </li>
             <li className='cursor-pointer'>Orders</li>
           </ul>
+          <div className='w-[20%] border-b-2 border-black hidden md:flex'>
+            <input type="search" placeholder='Search...' className='bg-transparent w-[100%] focus:outline-none' />
+          </div>
           <div className='flex gap-5 items-center'>
             <h1>Abhay</h1>
             <button className='bg-yellow bg-yellow-400 p-1 px-2 rounded-md font-semibold'>Logout</button>
