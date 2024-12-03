@@ -1,10 +1,8 @@
 import React from 'react'
-import Navbar from '../../components/Navbar'
 
 function Cart() {
   return (
     <div>
-        <Navbar/>
         <section>
             <div className='flex justify-center mt-10'>
                 <table className='w-[80%]'>
