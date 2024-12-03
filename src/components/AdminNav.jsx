@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function Navbar() {
+function AdminNav() {
   const [showModal, setShowModal] = useState(false);
   const [products, setProducts] = useState(5);
   return (
@@ -16,7 +16,7 @@ function Navbar() {
             <li className='cursor-pointer'>Orders</li>
           </ul>
           <div className='flex gap-5 items-center'>
-            <h1>Abhay</h1>
+            <h1>Admin</h1>
             <button className='bg-yellow bg-yellow-400 p-1 px-2 rounded-md font-semibold'>Logout</button>
           </div>
         </div>
@@ -25,4 +25,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default AdminNav
