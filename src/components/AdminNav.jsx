@@ -15,20 +15,6 @@ function Navbar() {
             </li>
             <li className='cursor-pointer'>Orders</li>
           </ul>
-          <div className='w-[20%] border-b-2 border-black hidden md:flex'>
-            <div className='relative w-full'>
-            <input onFocus={()=>setShowModal(true)} type="search" placeholder='Search...' className='bg-transparent w-[100%] focus:outline-none' />
-            {showModal && (
-              <div className='absolute left-0 mt-3 overflow-y-auto z-50 w-full max-h-60 bg-white border rounded-lg'>
-                <ul className='divide-y divide-gray-300'>
-                  {[...Array(products)].map(product=>(
-                    <li className='cursor-pointer p-2'>product name</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            </div>
-          </div>
           <div className='flex gap-5 items-center'>
             <h1>Abhay</h1>
             <button className='bg-yellow bg-yellow-400 p-1 px-2 rounded-md font-semibold'>Logout</button>
