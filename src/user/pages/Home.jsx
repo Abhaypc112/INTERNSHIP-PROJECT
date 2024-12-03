@@ -6,7 +6,7 @@ function Home() {
   return (
     <div>
       <Navbar/>
-     <div className='flex flex-wrap gap-9 p-10'>
+     <div className='flex flex-wrap justify-center gap-9 p-10'>
      {
         [...Array(10)].map((items)=>(
             <ProductCard/>
