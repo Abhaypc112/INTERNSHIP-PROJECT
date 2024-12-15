@@ -1,3 +1,74 @@
 {
-    "hello":"hi"
+    "mobiles": [
+      {
+        "id": 1,
+        "name": "Apple iPhone 15 Pro",
+        "description": "The latest iPhone with A17 Bionic chip, 6.1-inch Super Retina XDR display, and dynamic island.",
+        "price": 1299,
+        "image": "https://example.com/images/iphone15pro.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Samsung Galaxy S23 Ultra",
+        "description": "Flagship device with Snapdragon 8 Gen 2, 200 MP camera, and 5000mAh battery.",
+        "price": 1199,
+        "image": "https://example.com/images/galaxys23ultra.jpg"
+      },
+      {
+        "id": 3,
+        "name": "OnePlus 12",
+        "description": "Fast and smooth performance with Snapdragon 8 Gen 3, 120Hz AMOLED display, and Hasselblad cameras.",
+        "price": 899,
+        "image": "https://example.com/images/oneplus12.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Google Pixel 8 Pro",
+        "description": "Powered by Google Tensor G3, with AI-powered photography and clean Android experience.",
+        "price": 999,
+        "image": "https://example.com/images/pixel8pro.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Xiaomi 13 Pro",
+        "description": "Flagship device with Leica optics, Snapdragon 8 Gen 2, and ceramic body design.",
+        "price": 799,
+        "image": "https://example.com/images/xiaomi13pro.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Realme GT 5",
+        "description": "High-performance gaming phone with 240W fast charging and AMOLED display.",
+        "price": 699,
+        "image": "https://example.com/images/realmegt5.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Sony Xperia 1 V",
+        "description": "Premium device with 4K OLED display, Snapdragon 8 Gen 2, and professional-grade cameras.",
+        "price": 1399,
+        "image": "https://example.com/images/xperia1v.jpg"
+      },
+      {
+        "id": 8,
+        "name": "Asus ROG Phone 7 Ultimate",
+        "description": "Ultimate gaming phone with Snapdragon 8 Gen 2, 165Hz AMOLED display, and active cooling.",
+        "price": 1099,
+        "image": "https://example.com/images/rogphone7.jpg"
+      },
+      {
+        "id": 9,
+        "name": "Motorola Edge 40 Pro",
+        "description": "Slim and powerful device with Snapdragon 8 Gen 2, edge-to-edge pOLED display, and IP68 rating.",
+        "price": 749,
+        "image": "https://example.com/images/motoedge40pro.jpg"
+      },
+      {
+        "id": 10,
+        "name": "Vivo X90 Pro",
+        "description": "Photography-focused device with Zeiss lenses, MediaTek Dimensity 9200, and 1-inch camera sensor.",
+        "price": 899,
+        "image": "https://example.com/images/vivox90pro.jpg"
+      }
+    ]
 }
