@@ -19,7 +19,7 @@ function Home() {
           <div key={product.id}>
             <div className='shadow-md w-[11rem] h-[16rem] border'>
               <div className='h-[60%] flex justify-center'>
-                  <img className='w-36 h-36' src="https://www.imagineonline.store/cdn/shop/files/iPhone_16_Ultramarine_PDP_Image_Position_1__en-IN_be8b658c-2ab8-4796-9a8a-216864e1df03.jpg?v=1727247795&width=1445" alt="Product image" />
+                  <img className='w-36 h-36' src="https://www.imagineonline.store/cdn/shop/files/iPhone_16_Ultramarine_PDP_Image_Position_1__en-IN_be8b658c-2ab8-4796-9a8a-216864e1df03.jpg?v=1727247795&width=1445" alt="Product" />
               </div>
               <div className='p-2 font-semibold'>
                   <h1 className='font-semibold'>{product.name}</h1>
