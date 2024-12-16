@@ -19,7 +19,7 @@ function AdminNav() {
           </ul>
           <div className='flex gap-5 items-center'>
             <h1>{admin}</h1>
-            <button className='bg-yellow bg-yellow-400 p-1 px-2 rounded-md font-semibold' onClick={()=> logout()}>Logout</button>
+            <button className='bg-yellow bg-yellow-400 p-1 px-2 rounded-md font-semibold active:scale-95 transition duration-200' onClick={()=> logout()}>Logout</button>
           </div>
         </div>
       </nav>

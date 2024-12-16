@@ -1,16 +1,49 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../contexts/authContext';
+import { getAllProducts } from '../api/productApi';
 
 function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const {logout} = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
-  const [products, setProducts] = useState(5);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [products, setProducts] = useState([]);
   const user = localStorage.getItem('user');
   const isLoginPage = location.pathname.startsWith('/login')
   
+  useEffect(()=>{
+    const fetchProducts = async () =>{
+      if(searchTerm.trim()===''){
+        setProducts([]);
+        setShowModal(false);
+        return;
+      }
+      try{
+        const res = await getAllProducts();
+        const searchProducts = res.data.filter(product=>(
+          product.name.toLowerCase().includes(searchTerm.toLowerCase())
+        ));
+        setProducts(searchProducts);
+        setShowModal(true);
+      }
+      catch(error){
+        console.error("Error while searching Products", error);
+      }
+    }
+
+    const delaySearch = setTimeout(() => {
+      fetchProducts();
+    }, 300);
+
+    return () => clearTimeout(delaySearch);
+  },[searchTerm])
+
+  const handleProductClick = (productId)=>{
+    setShowModal(false)
+    navigate(`/product/${productId}`)
+  }
   return (
     <div>
       <nav>
@@ -27,12 +60,12 @@ function Navbar() {
           </ul>
           <div className='w-[20%] border-b-2 border-black hidden md:flex'>
             <div className='relative w-full'>
-            <input onFocus={()=>setShowModal(true)} type="search" placeholder='Search...' className='bg-transparent w-[100%] focus:outline-none' />
-            {showModal && (
+            <input onChange={(e)=>setSearchTerm(e.target.value)} type="search" placeholder='Search...' className='bg-transparent w-[100%] focus:outline-none' />
+            {showModal && products.length>0 && (
               <div className='absolute left-0 mt-3 overflow-y-auto z-50 w-full max-h-60 bg-white border rounded-lg'>
                 <ul className='divide-y divide-gray-300'>
-                  {[...Array(products)].map(product=>(
-                    <li className='cursor-pointer p-2'>product name</li>
+                  {products.map(product=>(
+                    <li key={product.id} onClick={()=>handleProductClick(product.id)} className='cursor-pointer p-2'>{product.name}</li>
                   ))}
                 </ul>
               </div>
@@ -43,12 +76,12 @@ function Navbar() {
             <h1>{user}</h1>
             {
               user?(
-                <button className='bg-yellow bg-yellow-400 p-1 px-2 rounded-md font-semibold' onClick={()=>logout()}>Logout</button>
+                <button className='bg-yellow bg-yellow-400 p-1 px-2 rounded-md font-semibold active:scale-95 transition duration-200' onClick={()=>logout()}>Logout</button>
               ):(
                 isLoginPage?(
-                  <button className='bg-yellow bg-yellow-400 p-1 px-2 rounded-md font-semibold' onClick={()=>navigate('/signup')}>Signup</button>
+                  <button className='bg-yellow bg-yellow-400 p-1 px-2 rounded-md font-semibold active:scale-95 transition duration-200' onClick={()=>navigate('/signup')}>Signup</button>
                 ):(
-                  <button className='bg-yellow bg-yellow-400 p-1 px-2 rounded-md font-semibold' onClick={()=>navigate('/login')}>Login</button>
+                  <button className='bg-yellow bg-yellow-400 p-1 px-2 rounded-md font-semibold active:scale-95 transition duration-200' onClick={()=>navigate('/login')}>Login</button>
                 )
               )
             }
