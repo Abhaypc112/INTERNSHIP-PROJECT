@@ -8,8 +8,6 @@ export const AuthContext = createContext();
 export const AuthProvider = ({children})=>{
     const navigate=useNavigate();
     const [user,setUser]=useState([]);
-    const userId=localStorage.getItem('userId');
-    const admin=localStorage.getItem('admin');
     
     const login = async(username,password)=>{
         try{
@@ -39,19 +37,24 @@ export const AuthProvider = ({children})=>{
             console.error('Login error :',err);
         }
     };
-
+    
     const logout =()=>{
-        // setUser(null);
+        const userId=localStorage.getItem('userId');
+        const user=localStorage.getItem('user');
+        const admin=localStorage.getItem('admin');
+        
+        setUser([]);
         if(admin){
             localStorage.removeItem('admin');
             setTimeout(()=>{
-                navigate('/home')
+                navigate('/login')
             },1000)
         }
-        else if(userId){
+        else if(user || userId){
+            localStorage.removeItem('user');
             localStorage.removeItem('userId');
             setTimeout(()=>{
-                navigate('/home')
+                navigate('/login')
             },1000)
         }
     };

@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
-
+import React, { useContext, useState } from 'react'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../contexts/authContext';
 
 function Navbar() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const {logout} = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
   const [products, setProducts] = useState(5);
   const user = localStorage.getItem('user');
+  const isLoginPage = location.pathname.startsWith('/login')
+  
   return (
     <div>
       <nav>
@@ -36,7 +41,17 @@ function Navbar() {
           </div>
           <div className='flex gap-5 items-center'>
             <h1>{user}</h1>
-            <button className='bg-yellow bg-yellow-400 p-1 px-2 rounded-md font-semibold'>Logout</button>
+            {
+              user?(
+                <button className='bg-yellow bg-yellow-400 p-1 px-2 rounded-md font-semibold' onClick={()=>logout()}>Logout</button>
+              ):(
+                isLoginPage?(
+                  <button className='bg-yellow bg-yellow-400 p-1 px-2 rounded-md font-semibold' onClick={()=>navigate('/signup')}>Signup</button>
+                ):(
+                  <button className='bg-yellow bg-yellow-400 p-1 px-2 rounded-md font-semibold' onClick={()=>navigate('/login')}>Login</button>
+                )
+              )
+            }
           </div>
         </div>
       </nav>
