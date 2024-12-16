@@ -2,7 +2,7 @@ import AdminRoutes from './admin/routes/AdminRoutes';
 import './App.css';
 import UserRoutes from './user/routes/UserRoutes';
 import SignUp from './auth/pages/SignUp';
-import SignIn from './auth/pages/SignIn';
+import Login from './auth/pages/Login';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import AdminNav from './components/AdminNav';
 import UserProtectedRoutes from './user/routes/UserProtectedRoutes';
@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/signup' element={<SignUp/>}/>
-        <Route path='/signin' element={<SignIn/>}/>
+        <Route path='/login' element={<Login/>}/>
         <Route path='/product/:productId' element={<Product/>}/>
         <Route element={<UserProtectedRoutes/>}>
           {UserRoutes.map(({path, element},index)=>(
