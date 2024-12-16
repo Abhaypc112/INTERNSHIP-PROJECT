@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom'
 function Navbar() {
   const [showModal, setShowModal] = useState(false);
   const [products, setProducts] = useState(5);
+  const user = localStorage.getItem('user');
   return (
     <div>
       <nav>
@@ -34,7 +35,7 @@ function Navbar() {
             </div>
           </div>
           <div className='flex gap-5 items-center'>
-            <h1>Abhay</h1>
+            <h1>{user}</h1>
             <button className='bg-yellow bg-yellow-400 p-1 px-2 rounded-md font-semibold'>Logout</button>
           </div>
         </div>

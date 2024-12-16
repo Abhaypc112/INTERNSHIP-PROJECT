@@ -8,13 +8,13 @@ function SignUp() {
     name: '',
     username: '',
     email: '',
-    password: ''
+    password: '',
+    role:'user'
   })
   const [errors, setErrors] = useState({});
   const handleOnChange = (e) =>{
     const {name, value} = e.target;
     setUserData({...userData, [name]: value})
-    validateForm()
   }
 
   const validateForm = () => {

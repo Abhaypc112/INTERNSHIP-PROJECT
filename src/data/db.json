@@ -4,15 +4,17 @@
       "name": "Hrithic Raj",
       "email": "hrj@gmail.com",
       "username": "hrj",
-      "password": "hrjhrj",
-      "id": "fdb2"
+      "password": "hrj",
+      "id": "fdb2",
+      "role": "admin"
     },
     {
       "name": "Abhay pc",
       "email": "abhay@gmail.com",
-      "username": "hrj",
-      "password": "hrjhrj",
-      "id": "99e0"
+      "username": "abhay",
+      "password": "abhay",
+      "id": "99e0",
+      "role": "user"
     }
   ],
   "mobiles": [

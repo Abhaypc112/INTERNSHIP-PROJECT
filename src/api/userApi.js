@@ -12,3 +12,8 @@ export const addUser=async (userData)=>{
     const res = await axios.post(USER_URL,userData);
     return res.data;
 }
+
+export const checkUser= async (username,password)=>{
+    const res = await axios.get(`${USER_URL}?username=${username}&password=${password}`)
+    return res.data;
+}
