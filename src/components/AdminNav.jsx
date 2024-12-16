@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 function AdminNav() {
-  const [showModal, setShowModal] = useState(false);
-  const [products, setProducts] = useState(5);
   return (
     <div>
       <nav>
