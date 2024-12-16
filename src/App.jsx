@@ -10,6 +10,7 @@ import AdminProtectedRoutes from './admin/routes/AdminProtectedRoutes';
 import Navbar from './components/Navbar';
 import Home from './user/pages/Home';
 import Product from './user/pages/Product';
+import NotFound from './components/NotFound';
 
 function App() {
   const location = useLocation();
@@ -32,6 +33,7 @@ function App() {
             <Route key={index} path={path} element={element}/>
           ))}
         </Route>
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
     </div>
   );

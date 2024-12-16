@@ -42,6 +42,7 @@ function Navbar() {
 
   const handleProductClick = (productId)=>{
     setShowModal(false)
+    setSearchTerm("");
     navigate(`/product/${productId}`)
   }
   return (
@@ -60,7 +61,7 @@ function Navbar() {
           </ul>
           <div className='w-[20%] border-b-2 border-black hidden md:flex'>
             <div className='relative w-full'>
-            <input onChange={(e)=>setSearchTerm(e.target.value)} type="search" placeholder='Search...' className='bg-transparent w-[100%] focus:outline-none' />
+            <input onChange={(e)=>setSearchTerm(e.target.value)} value={searchTerm} type="search" placeholder='Search...' className='bg-transparent w-[100%] focus:outline-none' />
             {showModal && products.length>0 && (
               <div className='absolute left-0 mt-3 overflow-y-auto z-50 w-full max-h-60 bg-white border rounded-lg'>
                 <ul className='divide-y divide-gray-300'>
