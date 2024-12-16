@@ -13,7 +13,7 @@ function Product() {
     <div className='flex md:flex-row flex-col justify-center w-[100%] h-[40rem] items-center'>
       <div className='md:w-[60%] w-[80%] h-[35rem] flex flex-col md:flex-row shadow-md border overflow-scroll md:overflow-hidden custom-scrollbar p-2'>
         <div className=' bg-white md:w-[50%] w-[100%] flex justify-center items-center'>
-            <img src="https://www.imagineonline.store/cdn/shop/files/iPhone_16_Ultramarine_PDP_Image_Position_1__en-IN_be8b658c-2ab8-4796-9a8a-216864e1df03.jpg?v=1727247795&width=1445" alt={product.name} />
+            <img src={product.image} alt={product.name} />
         </div>
         <div className=' md:w-[50%] w-[100%] h-[100%] flex-col '>
            <div className='h-[60%]  flex flex-col justify-evenly '>
