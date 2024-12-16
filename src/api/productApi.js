@@ -9,3 +9,4 @@ export const getAllProducts = () => {
 export const getProductById = (productId) => {
     return axios.get(`${PRODUCT_URL}/${productId}`);
 }
+

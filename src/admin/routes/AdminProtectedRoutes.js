@@ -7,4 +7,4 @@ const AdminProtectedRoutes = () => {
   return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
 };
 
-export default AdminProtectedRoutes;    
+export default AdminProtectedRoutes;
