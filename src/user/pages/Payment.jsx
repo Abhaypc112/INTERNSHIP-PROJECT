@@ -37,7 +37,7 @@ function Payment() {
             <label htmlFor="address">Address</label>
             <input type="text" name='address' className='border h-10 rounded-md'/>
             <label htmlFor="mobile">Mobile</label>
-            <input type="text" name='mobile' className='border h-10 rounded-md'/>
+            <input type="number" name='mobile' className='border h-10 rounded-md'/>
         </form>
         <h1 className='text-2xl font-bold'>Payment methode</h1>
         <form action="">
