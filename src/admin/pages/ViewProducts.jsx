@@ -1,13 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getAllProducts } from '../../api/productApi';
+import { useNavigate } from 'react-router-dom';
+import { deleteProducts } from '../../api/adminApi';
 
 function ViewProducts() {
+  const [products,setProducts] = useState([]);
+  const naviagte = useNavigate();
+  useEffect(()=>{
+    getAllProducts()
+    .then((res) => setProducts(res.data))
+  },[])
+  function handleDelete(productId){
+    deleteProducts(productId)
+    .then(()=>{
+      getAllProducts()
+    .then((res) => setProducts(res.data))
+    })
+  }
   return (
     <div>
       <section>
             <div className='flex justify-center mt-10'>
                 <table className='w-[80%]'>
+                  <button onClick={()=> naviagte('/admin/add-product')} className='bg-black text-white p-1 rounded-md px-2'>Add Product</button>
                     <tr>
-                        <th>NO</th>
                         <th>ITEM</th>
                         <th>NAME</th>
                         <th>DISCRIPTION</th>
@@ -15,16 +31,19 @@ function ViewProducts() {
                         <th>EDIT</th>
                         <th>DELETE</th>
                     </tr>
-                    <tr className='text-center border-y-2 h-14'>
-                        <td>#1</td>
-                        <td className='flex justify-center'><img className='w-14 h-14' src="https://www.imagineonline.store/cdn/shop/files/iPhone_16_Ultramarine_PDP_Image_Position_1__en-IN_be8b658c-2ab8-4796-9a8a-216864e1df03.jpg?v=1727247795&width=1445" alt="Product" /></td>
-                        <td>I Phone 16</td>
-                        <td>Discription</td>
-                        <td>₹ 70000</td>
-                        <td><button className='bg-blue-600 px-2 rounded-md p-1'>Edit</button></td>
-                        <td><button className='bg-red-500 px-2 rounded-md p-1'>Remove</button></td>
+                   
+                    {products && products.map((product,index)=>{
+                      return(
+                        <tr key={index} className='text-left  border-y-2 h-14 text-xs md:text-base'>
+                          <td className='flex justify-center'><img className='w-10 h-10' src={product.image} alt="Product" /></td>
+                          <td>{product.name}</td>
+                          <td className='text-xs'>{product.description}</td>
+                          <td>₹ {product.price}</td>
+                          <td><button onClick={()=>naviagte(`/admin/edit-product/${product.id}`)} className='bg-blue-600 text-white px-2 rounded-md p-1'>Edit</button></td>
+                          <td><button onClick={()=>handleDelete(product.id)} className='bg-red-500 px-2 text-white rounded-md p-1'>Delete</button></td>
                     </tr>
-                    
+                      )
+                    })}
                     
                 </table>
             </div>

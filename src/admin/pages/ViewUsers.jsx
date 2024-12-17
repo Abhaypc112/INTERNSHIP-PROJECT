@@ -7,15 +7,13 @@ function ViewUsers() {
             <div className='flex justify-center mt-10'>
                 <table className='w-[80%]'>
                     <tr>
-                        <th>NO</th>
                         <th>NAME</th>
                         <th>USERNAME</th>
                         <th>EMAIL</th>
                         <th>ORDERS</th>
                         <th>BLOCK</th>
                     </tr>
-                    <tr className='text-center border-y-2 h-14'>
-                        <td>#1</td>
+                    <tr className='text-center border-y-2 h-14 text-xs md:text-base'>
                         <td>Abhay pc</td>
                         <td>abhay</td>
                         <td>abhay@gmail.com</td>
