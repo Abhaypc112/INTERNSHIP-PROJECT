@@ -1,9 +1,7 @@
 import axios from "axios";
-import React from "react";
 
 const USER_URL = "http://localhost:5000/users";
-// const userId = localStorage.getItem('userId');
-
+const ORDER_URL = "http://localhost:5000/orders";
 
 export const checkUsername= async (username)=>{
     const res = await axios.get(`${USER_URL}?username=${username}`);
@@ -23,4 +21,8 @@ export const checkUser= async (username,password)=>{
 export const getUserById = async (userId)=>{
     const res = await axios.get(`${USER_URL}/${userId}`);
     return res.data;
+}
+
+export const getAllOrdersByUserId = async (userId) => {
+    return await axios.get(`${ORDER_URL}?userId=${userId}`)
 }
