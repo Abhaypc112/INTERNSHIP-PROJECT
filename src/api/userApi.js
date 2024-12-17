@@ -2,6 +2,8 @@ import axios from "axios";
 import React from "react";
 
 const USER_URL = "http://localhost:5000/users";
+// const userId = localStorage.getItem('userId');
+
 
 export const checkUsername= async (username)=>{
     const res = await axios.get(`${USER_URL}?username=${username}`);
@@ -14,6 +16,11 @@ export const addUser=async (userData)=>{
 }
 
 export const checkUser= async (username,password)=>{
-    const res = await axios.get(`${USER_URL}?username=${username}&password=${password}`)
+    const res = await axios.get(`${USER_URL}?username=${username}&password=${password}`);
+    return res.data;
+}
+
+export const getUserById = async (userId)=>{
+    const res = await axios.get(`${USER_URL}/${userId}`);
     return res.data;
 }

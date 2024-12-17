@@ -1,7 +1,7 @@
 import React,{createContext, useState} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { checkUser } from "../api/userApi";
+import { addUser, checkUser, checkUsername } from "../api/userApi";
 
 export const AuthContext = createContext();
 
@@ -9,6 +9,21 @@ export const AuthProvider = ({children})=>{
     const navigate=useNavigate();
     const [user,setUser]=useState([]);
     
+    const signup = async(userData)=>{
+        const isUsername = await checkUsername(userData.username)
+        if(!isUsername){
+            const validUser = await addUser(userData);
+            setUser(validUser);
+            localStorage.setItem("user", validUser.username);
+            localStorage.setItem("userId", validUser.id);
+            navigate('/');
+            return "";
+        }else{
+            return "Username already taken!";
+        }
+    }
+
+
     const login = async(username,password)=>{
         try{
             const [validUser] = await checkUser(username, password);
@@ -17,17 +32,13 @@ export const AuthProvider = ({children})=>{
                     if(validUser.role==="admin"){
                         setUser(validUser);
                         localStorage.setItem("admin", validUser.username);
-                        setTimeout(()=>{
-                            navigate('/admin');
-                        },1000)
+                        navigate('/admin');
                         return "";
                     }else{
                         setUser(validUser);
                         localStorage.setItem("user", validUser.username);
                         localStorage.setItem("userId", validUser.id);
-                        setTimeout(()=>{
-                            navigate('/');
-                        },1000)
+                        navigate('/');
                         return "";
                     }
                 }else{
@@ -50,21 +61,17 @@ export const AuthProvider = ({children})=>{
         setUser([]);
         if(admin){
             localStorage.removeItem('admin');
-            setTimeout(()=>{
-                navigate('/login')
-            },1000)
+            navigate('/login')
         }
         else if(user || userId){
             localStorage.removeItem('user');
             localStorage.removeItem('userId');
-            setTimeout(()=>{
-                navigate('/login')
-            },1000)
+            navigate('/login')
         }
     };
 
 return(
-    <AuthContext.Provider value={{user,login,logout}}>
+    <AuthContext.Provider value={{user, signup, login, logout}}>
         {children}
     </AuthContext.Provider>
 );

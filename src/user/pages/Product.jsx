@@ -1,15 +1,26 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { getProductById } from '../../api/productApi';
+import { CartContext } from '../../contexts/cartContext';
 
 function Product() {
+  const navigate = useNavigate();
   const {productId} = useParams();
   const [product,setProduct] = useState({});
   const [quntity, setQuntity] = useState(1);
+  const {addToCart} = useContext(CartContext);
+
   useEffect(()=>{
-        getProductById(productId)
-        .then((res) => setProduct(res.data))
-    },[productId])
+    getProductById(productId)
+    .then((res) => setProduct(res.data))
+  },[productId])
+  
+  const handleAddToCart = async (product, quntity)=>{
+    await addToCart(product , quntity);
+    navigate('/cart');
+  }
+
+
   return (
     <div className='flex md:flex-row flex-col justify-center w-[100%] h-[40rem] items-center'>
       <div className='md:w-[60%] w-[80%] h-[35rem] flex flex-col md:flex-row shadow-md border overflow-scroll md:overflow-hidden custom-scrollbar p-2'>
@@ -36,7 +47,7 @@ function Product() {
                   </button>
                 </div>
                 <h1 className='font-extrabold text-2xl'>₹ {product.price}</h1>
-                <button className='bg-black text-white px-2 p-4 rounded-md w-[50%] active:scale-95 transition duration-200'>Add to cart</button>
+                <button className='bg-black text-white px-2 p-4 rounded-md w-[50%] active:scale-95 transition duration-200' onClick={()=>handleAddToCart(product, quntity)}>Add to cart</button>
            </div>
         </div>
       </div>

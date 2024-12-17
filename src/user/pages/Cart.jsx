@@ -1,51 +1,64 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { getCartById } from '../../api/productApi'
+import { CartContext } from '../../contexts/cartContext';
 
 function Cart() {
     const navigate = useNavigate()
+    const userId = localStorage.getItem('userId');
+    const { cart, removeFromCart, loading } = useContext(CartContext);
+
+    const handleRemoveFromCart = async(productId)=>{
+        await removeFromCart(productId);
+    }
+
+    if (loading) return <p>Loading...</p>;
   return (
     <div>
         <section>
             <div className='flex justify-center mt-10'>
-                <table className='w-[80%]'>
-                    <tr>
-                        <th>ITEM</th>
-                        <th>NAME</th>
-                        <th>QUANTITY</th>
-                        <th>PRICE</th>
-                        <th>REMOVE</th>
-                    </tr>
-                    <tr className='text-center border-y-2 h-14'>
-                        <td className='flex justify-center'><img className='w-14 h-14' src="https://www.imagineonline.store/cdn/shop/files/iPhone_16_Ultramarine_PDP_Image_Position_1__en-IN_be8b658c-2ab8-4796-9a8a-216864e1df03.jpg?v=1727247795&width=1445" alt="Product" /></td>
-                        <td>I Phone 16</td>
-                        <td className='space-x-2'>
-                            <span className='font-extrabold bg-gray-400 px-2.5 rounded-sm cursor-pointer'>-</span> 
-                            <span>1</span> 
-                            <span className='font-extrabold bg-gray-400 px-2 rounded-sm cursor-pointer'>+</span></td>
-                        <td>₹ 70000</td>
-                        <td><button className='bg-red-500 px-2 rounded-md p-1'>Remove</button></td>
-                    </tr>
-                    <tr className='text-center border-y-2 h-14'>
-                        <td className='flex justify-center'><img className='w-14 h-14' src="https://www.imagineonline.store/cdn/shop/files/iPhone_16_Ultramarine_PDP_Image_Position_1__en-IN_be8b658c-2ab8-4796-9a8a-216864e1df03.jpg?v=1727247795&width=1445" alt="Product" /></td>
-                        <td>I Phone 16</td>
-                        <td className='space-x-2'>
-                            <span className='font-extrabold bg-gray-400 px-2.5 rounded-sm cursor-pointer'>-</span> 
-                            <span>1</span> 
-                            <span className='font-extrabold bg-gray-400 px-2 rounded-sm cursor-pointer'>+</span></td>
-                        <td>₹ 70000</td>
-                        <td><button className='bg-red-500 px-2 rounded-md p-1'>Remove</button></td>
-                    </tr>
-                    <tr className='text-xl border-y-2 h-14'>
-                        <th></th><th></th><th></th>
-                        <th>TOTAL : </th>
-                        <th>₹ 140000</th>
-                    </tr>
-                    <tr>
-                        <td></td><td></td><td></td><td></td>
-                        <td className='flex justify-center '><button onClick={()=>navigate('/payment')} className='bg-green-500 px-2 p-1 rounded-md text-white mt-2'>Place order</button></td>
-                    </tr>
-                    
-                </table>
+                {
+                    cart && cart.length>0 ? (
+                        <table className='w-[80%]'>
+                            <thead>
+                                <tr>
+                                    <th>ITEM</th>
+                                    <th>NAME</th>
+                                    <th>QUANTITY</th>
+                                    <th>PRICE</th>
+                                    <th>REMOVE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    cart.map(product=>(
+                                        <tr key={product.id} className='text-center border-y-2 h-16'>
+                                            <td className='flex justify-center items-center h-16'><img className='w-12 h-12' src={product.image && product.image} alt="Product" /></td>
+                                            <td>{product.name}</td>
+                                            <td className='space-x-2'>
+                                                <span className='font-extrabold bg-gray-400 px-2.5 rounded-sm cursor-pointer'>-</span> 
+                                                <span>{product.quantity}</span> 
+                                                <span className='font-extrabold bg-gray-400 px-2 rounded-sm cursor-pointer'>+</span></td>
+                                            <td>₹ {product.price * product.quantity}</td>
+                                            <td><button className='bg-red-500 px-2 rounded-md p-1 text-white' onClick={()=>handleRemoveFromCart(product.id)}>Remove</button></td>
+                                        </tr>
+                                    ))
+                                }
+                                <tr className='text-xl border-y-2 h-14'>
+                                    <th></th><th></th><th></th>
+                                    <th>TOTAL : </th>
+                                    <th>₹ 140000</th>
+                                </tr>
+                                <tr>
+                                    <td></td><td></td><td></td><td></td>
+                                    <td className='flex justify-center '><button onClick={()=>navigate('/payment')} className='bg-green-500 px-2 p-1 rounded-md text-white mt-2'>Place order</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    ):(
+                        <span>empty cart</span>
+                    )
+                }
             </div>
         </section>
     </div>

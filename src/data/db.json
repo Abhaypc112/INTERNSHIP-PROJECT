@@ -16,7 +16,52 @@
       "password": "abhay",
       "id": "99e0",
       "role": "user",
-      "block": false
+      "block": false,
+      "cart": [
+        {
+          "id": "00001",
+          "name": "Apple iPhone 15 Pro max",
+          "description": "The latest iPhone with A17 Bionic chip, 6.1-inch Super Retina XDR display, and dynamic island.",
+          "price": 119900,
+          "quantity": 1,
+          "image": "https://m.media-amazon.com/images/I/81c50PU+lpL._AC_UY327_FMwebp_QL65_.jpg"
+        },
+        {
+          "id": "00002",
+          "name": "Samsung Galaxy S23 Ultra",
+          "description": "Flagship device with Snapdragon 8 Gen 2, 200 MP camera, and 5000mAh battery.",
+          "price": 76999,
+          "quantity": 2,
+          "image": "https://m.media-amazon.com/images/I/71goZuIha-L._AC_UY327_FMwebp_QL65_.jpg"
+        }
+      ]
+    },
+    {
+      "name": "muhsin",
+      "email": "muhsin@gmail.com",
+      "username": "muhsin",
+      "password": "muhsin",
+      "id": "fr34",
+      "role": "user",
+      "block": false,
+      "cart": [
+        {
+          "id": "00004",
+          "name": "Google Pixel 8 5G",
+          "description": "Powered by Google Tensor G3, with AI-powered photography and clean Android experience.",
+          "price": 56399,
+          "image": "https://m.media-amazon.com/images/I/51x3Qb8-Y+L._AC_UY327_FMwebp_QL65_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "00006",
+          "name": "Realme GT 7 pro",
+          "description": "High-performance gaming phone with 240W fast charging and AMOLED display.",
+          "price": 59998,
+          "image": "https://m.media-amazon.com/images/I/612IqV1YEjL._AC_UY327_FMwebp_QL65_.jpg",
+          "quantity": 4
+        }
+      ]
     }
   ],
   "mobiles": [
