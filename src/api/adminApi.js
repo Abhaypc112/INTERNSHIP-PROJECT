@@ -13,6 +13,9 @@ const ORDER_URL = "http://localhost:5000/orders";
 export const getAllUsers = async () => {
     return await axios.get(USER_URL)
 }
+export const updateUser = async (id,data) => {
+    return await axios.patch(`${USER_URL}/${id}`,data)
+}
 export const getAllOrders = async () => {
     return await axios.get(ORDER_URL)
 }
