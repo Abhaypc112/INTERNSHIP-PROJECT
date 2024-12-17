@@ -17,3 +17,4 @@ export const checkUser= async (username,password)=>{
     const res = await axios.get(`${USER_URL}?username=${username}&password=${password}`)
     return res.data;
 }
+

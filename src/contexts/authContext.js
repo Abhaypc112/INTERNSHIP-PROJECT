@@ -13,24 +13,28 @@ export const AuthProvider = ({children})=>{
         try{
             const [validUser] = await checkUser(username, password);
             if(validUser){
-                if(validUser.role==="admin"){
-                    setUser(validUser);
-                    localStorage.setItem("admin", validUser.username);
-                    setTimeout(()=>{
-                        navigate('/admin');
-                    },1000)
-                    return true;
+                if(!validUser.block){
+                    if(validUser.role==="admin"){
+                        setUser(validUser);
+                        localStorage.setItem("admin", validUser.username);
+                        setTimeout(()=>{
+                            navigate('/admin');
+                        },1000)
+                        return "";
+                    }else{
+                        setUser(validUser);
+                        localStorage.setItem("user", validUser.username);
+                        localStorage.setItem("userId", validUser.id);
+                        setTimeout(()=>{
+                            navigate('/');
+                        },1000)
+                        return "";
+                    }
                 }else{
-                    setUser(validUser);
-                    localStorage.setItem("user", validUser.username);
-                    localStorage.setItem("userId", validUser.id);
-                    setTimeout(()=>{
-                        navigate('/');
-                    },1000)
-                    return true;
+                    return "User Blocked!, Contact Admin";
                 }
             }else{
-                return false;
+                return "Invalid username or password";
             }
         }
         catch(err){

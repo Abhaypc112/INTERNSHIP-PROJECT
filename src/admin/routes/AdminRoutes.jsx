@@ -12,7 +12,7 @@ const AdminRoutes = [
   {path: '/admin/view-users', element:<ViewUsers/>},
   {path: '/admin/view-orders', element:<ViewOrders/>},  
   {path: '/admin/add-product', element:<AddProduct/>},  
-  {path: '/admin/edit-product/:produtId', element:<EditProduct/>},  
+  {path: '/admin/edit-product/:productId', element:<EditProduct/>},  
 ]
 
 export default AdminRoutes
