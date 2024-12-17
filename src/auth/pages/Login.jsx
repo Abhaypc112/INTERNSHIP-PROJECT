@@ -35,9 +35,9 @@ function Login() {
     const handleOnSubmit = async (e) =>{
       e.preventDefault();
       if(validateForm()){
-        const isValidUser = await login(userData.username, userData.password);
-        if(!isValidUser){
-          setErrors({...errors,isValidUser: "Invalid username or password"})
+        const loginErrors = await login(userData.username, userData.password);
+        if(loginErrors!==''){
+          setErrors({...errors, loginErrors})
         }
       }
     }
@@ -49,7 +49,7 @@ function Login() {
         </div>
         <form className='flex flex-col justify-center space-y-8 h-[350px] md:h-[450px] w-[400px] md:w-[350px] p-3' onSubmit={(e)=>handleOnSubmit(e)} >
           <span className='text-center font-bold text-2xl'>LOGIN</span>
-          {errors.isValidUser && <span className='text-center text-red-500'>{errors.isValidUser}</span>}
+          {errors.loginErrors && <span className='text-center text-red-500'>{errors.loginErrors}</span>}
           <input className={`border-b border-gray-400 h-9 p-2 focus:outline-none ${ errors.username && 'placeholder-red-500'}`} value={userData.username} onChange={(e)=>handleOnChange(e)} type="text" name='username' placeholder={errors.username?errors.username:'Username'}/>
           <input className={`border-b border-gray-400 h-9 p-2 focus:outline-none ${ errors.password && 'placeholder-red-500'}`} value={userData.password} onChange={(e)=>handleOnChange(e)} type="password" name='password' placeholder={errors.password?errors.password:'Password'}/>
           <button className='border border-gray-400 rounded-md h-10 p-2 bg-blue-400 text-white'>Continue</button>
