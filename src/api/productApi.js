@@ -2,7 +2,6 @@ import axios from 'axios';
 
 const PRODUCT_URL = "http://localhost:5000/mobiles";
 const USER_URL = "http://localhost:5000/users";
-const userId = localStorage.getItem('userId');
 
 // products
 
@@ -15,11 +14,11 @@ export const getProductById = (productId) => {
 
 // cart
 
-export const getCartById = async ()=>{
+export const getCartById = async (userId)=>{
     const res= await axios.get(`${USER_URL}/${userId}`)
     return res.data.cart;
 }
 
-export const updateCart = async (cartData)=>{
+export const updateCart = async (userId, cartData)=>{
     return axios.put(`${USER_URL}/${userId}`, cartData);
 }

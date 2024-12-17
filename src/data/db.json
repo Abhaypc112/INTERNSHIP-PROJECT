@@ -51,7 +51,7 @@
           "description": "Powered by Google Tensor G3, with AI-powered photography and clean Android experience.",
           "price": 56399,
           "image": "https://m.media-amazon.com/images/I/51x3Qb8-Y+L._AC_UY327_FMwebp_QL65_.jpg",
-          "quantity": 1
+          "quantity": 3
         },
         {
           "id": "00002",
@@ -59,6 +59,68 @@
           "description": "Flagship device with Snapdragon 8 Gen 2, 200 MP camera, and 5000mAh battery.",
           "price": 76999,
           "image": "https://m.media-amazon.com/images/I/71goZuIha-L._AC_UY327_FMwebp_QL65_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "00012",
+          "name": "iPhone 16 128 GB",
+          "description": "5G Mobile Phone with Camera Control, A18 Chip and a Big Boost in Battery Life.",
+          "price": 77400,
+          "image": "https://m.media-amazon.com/images/I/61lLjrvDEkL._AC_UY327_FMwebp_QL65_.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "a5d6",
+      "name": "rex",
+      "username": "rex",
+      "email": "rex@gmail.com",
+      "password": "rex",
+      "role": "user",
+      "block": false,
+      "cart": [
+        {
+          "id": "00002",
+          "name": "Samsung Galaxy S23 Ultra",
+          "description": "Flagship device with Snapdragon 8 Gen 2, 200 MP camera, and 5000mAh battery.",
+          "price": 76999,
+          "image": "https://m.media-amazon.com/images/I/71goZuIha-L._AC_UY327_FMwebp_QL65_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "00003",
+          "name": "OnePlus 12",
+          "description": "Fast and smooth performance with Snapdragon 8 Gen 3, 120Hz AMOLED display, and Hasselblad cameras.",
+          "price": 63999,
+          "image": "https://m.media-amazon.com/images/I/61BAuSC0UnL._AC_UY327_FMwebp_QL65_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "00011",
+          "name": "Nothing Phone 2",
+          "description": "Minimalistic design with Snapdragon 8+ Gen 1, Glyph Interface, and OLED display.",
+          "price": 45650,
+          "image": "https://m.media-amazon.com/images/I/819VAShnDpL._AC_UY327_FMwebp_QL65_.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "318f",
+      "name": "koru",
+      "username": "koru",
+      "email": "koru",
+      "password": "koru",
+      "role": "user",
+      "block": false,
+      "cart": [
+        {
+          "id": "00011",
+          "name": "Nothing Phone 2",
+          "description": "Minimalistic design with Snapdragon 8+ Gen 1, Glyph Interface, and OLED display.",
+          "price": 45650,
+          "image": "https://m.media-amazon.com/images/I/819VAShnDpL._AC_UY327_FMwebp_QL65_.jpg",
           "quantity": 1
         }
       ]

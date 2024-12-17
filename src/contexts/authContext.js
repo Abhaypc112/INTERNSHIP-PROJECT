@@ -13,6 +13,8 @@ export const AuthProvider = ({children})=>{
         const isUsername = await checkUsername(userData.username)
         if(!isUsername){
             const validUser = await addUser(userData);
+            console.log(validUser);
+            
             setUser(validUser);
             localStorage.setItem("user", validUser.username);
             localStorage.setItem("userId", validUser.id);
@@ -57,13 +59,13 @@ export const AuthProvider = ({children})=>{
         const userId=localStorage.getItem('userId');
         const user=localStorage.getItem('user');
         const admin=localStorage.getItem('admin');
-        
-        setUser([]);
         if(admin){
+            setUser([]);
             localStorage.removeItem('admin');
             navigate('/login')
         }
         else if(user || userId){
+            setUser([]);
             localStorage.removeItem('user');
             localStorage.removeItem('userId');
             navigate('/login')

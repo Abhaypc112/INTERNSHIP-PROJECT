@@ -35,7 +35,7 @@ export const CartProvider = ({ children }) => {
     const updateCartOnServer = async (updatedCartData)=>{
         try{
             const updatedUser = {...user, cart: updatedCartData};
-            await updateCart(updatedUser);
+            await updateCart(user.id, updatedUser);
             setCart(updatedCartData);
         }
         catch(error){
