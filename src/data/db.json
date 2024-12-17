@@ -54,12 +54,12 @@
           "quantity": 1
         },
         {
-          "id": "00006",
-          "name": "Realme GT 7 pro",
-          "description": "High-performance gaming phone with 240W fast charging and AMOLED display.",
-          "price": 59998,
-          "image": "https://m.media-amazon.com/images/I/612IqV1YEjL._AC_UY327_FMwebp_QL65_.jpg",
-          "quantity": 4
+          "id": "00002",
+          "name": "Samsung Galaxy S23 Ultra",
+          "description": "Flagship device with Snapdragon 8 Gen 2, 200 MP camera, and 5000mAh battery.",
+          "price": 76999,
+          "image": "https://m.media-amazon.com/images/I/71goZuIha-L._AC_UY327_FMwebp_QL65_.jpg",
+          "quantity": 2
         }
       ]
     }
@@ -174,7 +174,7 @@
       ],
       "totalAmount": 119900,
       "date": "24-04-2024",
-      "paymentMethode":"COD",
+      "paymentMethode": "COD",
       "deliveryAddress": {
         "name": "Abhay pc",
         "address": "Ramanattukara",
