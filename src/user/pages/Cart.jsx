@@ -6,7 +6,7 @@ import { CartContext } from '../../contexts/cartContext';
 function Cart() {
     const navigate = useNavigate()
     const userId = localStorage.getItem('userId');
-    const { cart, removeFromCart, updateCartQuantity, loading } = useContext(CartContext);
+    const { cart, cartTotal, removeFromCart, updateCartQuantity, loading } = useContext(CartContext);
 
     const handleRemoveFromCart = async(productId)=>{
         await removeFromCart(productId);
@@ -47,7 +47,7 @@ function Cart() {
                                 <tr className='text-xl border-y-2 h-14'>
                                     <th></th><th></th><th></th>
                                     <th>TOTAL : </th>
-                                    <th>₹ 140000</th>
+                                    <th>₹ {cartTotal}</th>
                                 </tr>
                                 <tr>
                                     <td></td><td></td><td></td><td></td>

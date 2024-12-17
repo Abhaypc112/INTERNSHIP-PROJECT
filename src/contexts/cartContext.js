@@ -12,7 +12,7 @@ export const CartProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const userId = localStorage.getItem('userId');
     const {user:contextUser} = useContext(AuthContext);
-
+    const [cartTotal, setCartTotal] = useState(0);
 
     const fetchUserData = async (userId) => {
         try {
@@ -25,13 +25,23 @@ export const CartProvider = ({ children }) => {
             setLoading(false);
         }
     };
-
+    
     useEffect(()=>{
         if(userId){
             fetchUserData(userId);
         }
     },[contextUser])
 
+    const totalCartPrice = async ()=>{
+        const total = cart.reduce((acc,product)=>acc+(product.price*product.quantity),0)
+        setCartTotal(total);
+    }
+
+    useEffect(()=>{
+        totalCartPrice();
+    },[cart])
+
+    
     const updateCartOnServer = async (updatedCartData)=>{
         try{
             const updatedUser = {...user, cart: updatedCartData};
@@ -42,6 +52,8 @@ export const CartProvider = ({ children }) => {
             console.error("Error updating cart:", error);
         }
     };
+
+
 
     const addToCart = async(product, quantity = 1) =>{
         const existingItem = cart.find(item => item.id === product.id);
@@ -78,6 +90,7 @@ export const CartProvider = ({ children }) => {
         value={{
             cart,
             loading,
+            cartTotal,
             addToCart,
             removeFromCart,
             updateCartQuantity,
