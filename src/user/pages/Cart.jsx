@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Cart() {
+    const navigate = useNavigate()
   return (
     <div>
         <section>
@@ -40,7 +42,7 @@ function Cart() {
                     </tr>
                     <tr>
                         <td></td><td></td><td></td><td></td>
-                        <td className='flex justify-center '><button className='bg-green-500 px-2 p-1 rounded-md text-white mt-2'>Place order</button></td>
+                        <td className='flex justify-center '><button onClick={()=>navigate('/payment')} className='bg-green-500 px-2 p-1 rounded-md text-white mt-2'>Place order</button></td>
                     </tr>
                     
                 </table>
