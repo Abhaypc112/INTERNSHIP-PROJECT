@@ -19,15 +19,6 @@
       "block": false
     }
   ],
-  "orders": [
-    {
-      "id": "00001",
-      "name": "Apple iPhone 15 Pro max",
-      "description": "The latest iPhone with A17 Bionic chip, 6.1-inch Super Retina XDR display, and dynamic island.",
-      "price": 119900,
-      "image": "https://m.media-amazon.com/images/I/81c50PU+lpL._AC_UY327_FMwebp_QL65_.jpg"
-    }
-  ],
   "mobiles": [
     {
       "id": "00001",
@@ -112,6 +103,38 @@
       "description": "5G Mobile Phone with Camera Control, A18 Chip and a Big Boost in Battery Life.",
       "price": 77400,
       "image": "https://m.media-amazon.com/images/I/61lLjrvDEkL._AC_UY327_FMwebp_QL65_.jpg"
+    }
+  ],
+  "orders": [
+    {
+      "id": 876867565675,
+      "userId": "99e0",
+      "products": [
+        {
+          "id": "00001",
+          "name": "Apple iPhone 15 Pro max",
+          "description": "The latest iPhone with A17 Bionic chip, 6.1-inch Super Retina XDR display, and dynamic island.",
+          "price": 119900,
+          "image": "https://m.media-amazon.com/images/I/81c50PU+lpL._AC_UY327_FMwebp_QL65_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "00002",
+          "name": "Samsung Galaxy S23 Ultra",
+          "description": "Flagship device with Snapdragon 8 Gen 2, 200 MP camera, and 5000mAh battery.",
+          "price": 76999,
+          "image": "https://m.media-amazon.com/images/I/71goZuIha-L._AC_UY327_FMwebp_QL65_.jpg",
+          "quantity": 2
+        }
+      ],
+      "totalAmount": 119900,
+      "date": "24-04-2024",
+      "paymentMethode":"COD",
+      "deliveryAddress": {
+        "name": "Abhay pc",
+        "address": "Ramanattukara",
+        "mobile": 987987995556
+      }
     }
   ]
 }
