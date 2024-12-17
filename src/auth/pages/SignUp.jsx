@@ -9,7 +9,8 @@ function SignUp() {
     username: '',
     email: '',
     password: '',
-    role:'user'
+    role:'user',
+    block: false
   })
   const [errors, setErrors] = useState({});
   const handleOnChange = (e) =>{

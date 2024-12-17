@@ -6,7 +6,8 @@
       "username": "hrj",
       "password": "hrj",
       "id": "fdb2",
-      "role": "admin"
+      "role": "admin",
+      "block": false
     },
     {
       "name": "Abhay pc",
@@ -14,7 +15,8 @@
       "username": "abhay",
       "password": "abhay",
       "id": "99e0",
-      "role": "user"
+      "role": "user",
+      "block": false
     }
   ],
   "mobiles": [
