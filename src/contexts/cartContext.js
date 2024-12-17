@@ -62,6 +62,17 @@ export const CartProvider = ({ children }) => {
         updateCartOnServer(updatedCart)
     }
 
+    const updateCartQuantity = async (productId, quantity)=>{
+        const updatedCart = cart.map(product=>(
+            product.id === productId ? {...product,quantity} : product
+        ));
+        updateCartOnServer(updatedCart);
+    }
+
+    const clearCart = async () =>{
+        updateCartOnServer([]);
+    }
+
     return (
         <CartContext.Provider
         value={{
@@ -69,8 +80,8 @@ export const CartProvider = ({ children }) => {
             loading,
             addToCart,
             removeFromCart,
-            // updateCartQuantity,
-            // clearCart,
+            updateCartQuantity,
+            clearCart,
         }}
         >
         {children}

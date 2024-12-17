@@ -7,7 +7,7 @@ function Product() {
   const navigate = useNavigate();
   const {productId} = useParams();
   const [product,setProduct] = useState({});
-  const [quntity, setQuntity] = useState(1);
+  const [quantity, setQuantity] = useState(1);
   const {addToCart} = useContext(CartContext);
 
   useEffect(()=>{
@@ -15,8 +15,8 @@ function Product() {
     .then((res) => setProduct(res.data))
   },[productId])
   
-  const handleAddToCart = async (product, quntity)=>{
-    await addToCart(product , quntity);
+  const handleAddToCart = async (product, quantity)=>{
+    await addToCart(product , quantity);
     navigate('/cart');
   }
 
@@ -33,21 +33,21 @@ function Product() {
                 <p>{product.description}</p>
                 <div className="flex items-center justify-between space-x-4 bg-gray-300 max-w-32 rounded-md">
                   <button
-                    onClick={()=>setQuntity(prev=> prev===1 ? 1 : prev-1)}
+                    onClick={()=>setQuantity(prev=> prev===1 ? 1 : prev-1)}
                     className="flex items-center justify-center w-10 h-10 bg-black text-white rounded-md active:scale-90 transition duration-200"
                   >
                     -
                   </button>
-                  <span className="text-lg font-semibold text-gray-800">{quntity}</span>
+                  <span className="text-lg font-semibold text-gray-800">{quantity}</span>
                   <button
-                  onClick={()=>setQuntity(prev => prev + 1)}
+                  onClick={()=>setQuantity(prev => prev + 1)}
                     className="flex items-center justify-center w-10 h-10 bg-black text-white rounded-md active:scale-90 transition duration-200"
                   >
                     +
                   </button>
                 </div>
                 <h1 className='font-extrabold text-2xl'>₹ {product.price}</h1>
-                <button className='bg-black text-white px-2 p-4 rounded-md w-[50%] active:scale-95 transition duration-200' onClick={()=>handleAddToCart(product, quntity)}>Add to cart</button>
+                <button className='bg-black text-white px-2 p-4 rounded-md w-[50%] active:scale-95 transition duration-200' onClick={()=>handleAddToCart(product, quantity)}>Add to cart</button>
            </div>
         </div>
       </div>

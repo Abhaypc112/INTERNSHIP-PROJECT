@@ -6,12 +6,12 @@ import { CartContext } from '../../contexts/cartContext';
 function Cart() {
     const navigate = useNavigate()
     const userId = localStorage.getItem('userId');
-    const { cart, removeFromCart, loading } = useContext(CartContext);
+    const { cart, removeFromCart, updateCartQuantity, loading } = useContext(CartContext);
 
     const handleRemoveFromCart = async(productId)=>{
         await removeFromCart(productId);
     }
-
+    
     if (loading) return <p>Loading...</p>;
   return (
     <div>
@@ -36,9 +36,9 @@ function Cart() {
                                             <td className='flex justify-center items-center h-16'><img className='w-12 h-12' src={product.image && product.image} alt="Product" /></td>
                                             <td>{product.name}</td>
                                             <td className='space-x-2'>
-                                                <span className='font-extrabold bg-gray-400 px-2.5 rounded-sm cursor-pointer'>-</span> 
+                                                <span className='font-extrabold bg-gray-400 px-2.5 rounded-sm cursor-pointer' onClick={() => updateCartQuantity(product.id, (product.quantity>1 ? product.quantity - 1 : product.quantity))}>-</span> 
                                                 <span>{product.quantity}</span> 
-                                                <span className='font-extrabold bg-gray-400 px-2 rounded-sm cursor-pointer'>+</span></td>
+                                                <span className='font-extrabold bg-gray-400 px-2 rounded-sm cursor-pointer' onClick={() => updateCartQuantity(product.id, product.quantity + 1)}>+</span></td>
                                             <td>₹ {product.price * product.quantity}</td>
                                             <td><button className='bg-red-500 px-2 rounded-md p-1 text-white' onClick={()=>handleRemoveFromCart(product.id)}>Remove</button></td>
                                         </tr>
