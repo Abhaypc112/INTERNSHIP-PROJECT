@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const PRODUCT_URL = "https://e-app-server-internship.onrender.com/mobiles";
-
+const USER_URL = "https://e-app-server-internship.onrender.com/users";
 // products
 
 export const getAllProducts = () => {
