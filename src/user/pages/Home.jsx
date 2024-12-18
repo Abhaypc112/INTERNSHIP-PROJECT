@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 // import ProductCard from '../../components/ProductCard';
 import { getAllProducts } from '../../api/productApi';
 import { useNavigate } from 'react-router-dom';
+import { CartContext } from '../../contexts/cartContext';
 
 function Home() {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
+  const {addToCart} = useContext(CartContext);
 
   useEffect(()=>{
     getAllProducts()
@@ -13,6 +15,10 @@ function Home() {
     .catch(err=>console.error(err))
   },[]);
 
+  const handleAddToCart = async (product)=>{
+    await addToCart(product , 1);
+    navigate('/cart');
+  }
   return (
     <div>
      <div className='flex flex-wrap justify-center gap-9 p-10'>
@@ -26,7 +32,7 @@ function Home() {
               <div className='p-2 font-semibold h-[40%] flex flex-col justify-between'>
                   <h1 className='text-sm font-normal'>{product.name}</h1>
                   <h1 className='font-semibold'>₹{product.price}</h1>
-                  <button className='bg-black text-white px-2 p-1 rounded-md w-[60%] active:scale-95 transition duration-200'>Add to cart</button>
+                  <button className='bg-black text-white px-2 p-1 rounded-md w-[60%] active:scale-95 transition duration-200' onClick={()=>handleAddToCart(product)}>Add to cart</button>
               </div>
             </div>
           </div>

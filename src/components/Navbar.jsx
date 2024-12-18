@@ -2,15 +2,17 @@ import React, { useContext, useEffect, useState } from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../contexts/authContext';
 import { getAllProducts } from '../api/productApi';
+import { CartContext } from '../contexts/cartContext';
 
 function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const {logout} = useContext(AuthContext);
+  const {cart} = useContext(CartContext);
+  const user = localStorage.getItem('user');
   const [showModal, setShowModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [products, setProducts] = useState([]);
-  const user = localStorage.getItem('user');
   const isLoginPage = location.pathname.startsWith('/login')
   
   useEffect(()=>{
@@ -54,7 +56,7 @@ function Navbar() {
             <NavLink to="/"><li className='cursor-pointer hidden md:flex'>Home</li></NavLink>
             <NavLink to="/cart">
               <li className='cursor-pointer relative'>Cart 
-                <span className='relative text-xs px-1 rounded-full bg-yellow-400 '>1</span>
+                {user && cart && cart.length>0 && (<span className='relative text-xs px-1 rounded-full bg-yellow-400 '>{cart.length}</span>)}
               </li>
             </NavLink>
             <NavLink to="/order"><li className='cursor-pointer'>Orders</li></NavLink>
