@@ -17,7 +17,6 @@ function Home() {
 
   const handleAddToCart = async (product)=>{
     await addToCart(product , 1);
-    navigate('/cart');
   }
   return (
     <div>

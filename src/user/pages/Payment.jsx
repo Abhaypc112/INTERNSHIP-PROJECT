@@ -5,7 +5,7 @@ import { addToOrders } from '../../api/userApi';
 
 function Payment() {
     const navigate = useNavigate();
-    const userId = localStorage.getItem('userId')
+    const userId = localStorage.getItem('userId');
     const {cart, cartTotal, clearCart} = useContext(CartContext);
     const [selectedOption, setSelectedOption] = useState("")
     const [address, setAddress] = useState({
@@ -33,6 +33,7 @@ function Payment() {
                 mobile:''
             })
             setSelectedOption("");
+            navigate('/order');
         }else if(!cart.length>0){
             alert("cart is empty");
         }else if(!(address.name && address.address && address.mobile)){

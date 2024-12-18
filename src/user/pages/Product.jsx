@@ -17,7 +17,6 @@ function Product() {
   
   const handleAddToCart = async (product, quantity)=>{
     await addToCart(product , quantity);
-    navigate('/cart');
   }
 
 
