@@ -14,7 +14,12 @@ export const addUser=async (userData)=>{
 }
 
 export const checkUser= async (username,password)=>{
-    const res = await axios.get(`${USER_URL}?username=${username}&password=${password}`)
+    const res = await axios.get(`${USER_URL}?username=${username}&password=${password}`);
+    return res.data;
+}
+
+export const getUserById = async (userId)=>{
+    const res = await axios.get(`${USER_URL}/${userId}`);
     return res.data;
 }
 

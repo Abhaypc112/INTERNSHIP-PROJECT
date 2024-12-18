@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { addUser, checkUsername } from '../../api/userApi';
+import { AuthContext } from '../../contexts/authContext';
 
 function SignUp() {
   const navigate = useNavigate();
+  const {signup} = useContext(AuthContext);
   const [userData, setUserData] = useState({
     name: '',
     username: '',
@@ -41,12 +43,9 @@ function SignUp() {
   const handleOnSubmit = async (e) =>{
     e.preventDefault();
     if(validateForm()){
-      const isUsername = await checkUsername(userData.username)
-      if(!isUsername){
-        addUser(userData);
-        navigate('/');
-      }else{
-        setErrors({...errors,isUsername: "Username already taken!"})
+      const signupErrors = await signup(userData);
+      if(signupErrors!==''){
+        setErrors({...errors, signupErrors})
       }
     }
   }
@@ -55,7 +54,7 @@ function SignUp() {
       <div className='flex md:flex-row flex-col-reverse shadow-xl border mt-5 md:mt-28 rounded-md'>
         <form className='flex flex-col justify-center space-y-6 px-5 h-[450px] w-[400px] md:w-[350px] p-3' onSubmit={(e)=>handleOnSubmit(e)} >
           <span className='text-center font-bold text-2xl'>SIGN UP</span>
-          {errors.isUsername && <span className='text-center text-red-500'>{errors.isUsername}</span>}
+          {errors.signupErrors && <span className='text-center text-red-500'>{errors.signupErrors}</span>}
           <input className={`border-b border-gray-400 h-9 p-2 focus:outline-none ${ errors.name && 'placeholder-red-500'}`} value={userData.name} onChange={(e)=>handleOnChange(e)} type="text" name='name' placeholder={errors.name?errors.name:'Name'}/>
           <input className={`border-b border-gray-400 h-9 p-2 focus:outline-none ${ errors.username && 'placeholder-red-500'}`} value={userData.username} onChange={(e)=>handleOnChange(e)} type="text" name='username' placeholder={errors.username?errors.username:'Username'}/>
           <input className={`border-b border-gray-400 h-9 p-2 focus:outline-none ${ errors.email && 'placeholder-red-500'}`} value={userData.email} onChange={(e)=>handleOnChange(e)} type="text" name='email' placeholder={errors.email?errors.email:'Email'}/>

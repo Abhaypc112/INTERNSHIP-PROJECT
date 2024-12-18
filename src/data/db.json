@@ -16,7 +16,122 @@
       "password": "abhay",
       "id": "99e0",
       "role": "user",
-      "block": false
+      "block": false,
+      "cart": [
+        {
+          "id": "00001",
+          "name": "Apple iPhone 15 Pro max",
+          "description": "The latest iPhone with A17 Bionic chip, 6.1-inch Super Retina XDR display, and dynamic island.",
+          "price": 119900,
+          "quantity": 1,
+          "image": "https://m.media-amazon.com/images/I/81c50PU+lpL._AC_UY327_FMwebp_QL65_.jpg"
+        },
+        {
+          "id": "00002",
+          "name": "Samsung Galaxy S23 Ultra",
+          "description": "Flagship device with Snapdragon 8 Gen 2, 200 MP camera, and 5000mAh battery.",
+          "price": 76999,
+          "quantity": 2,
+          "image": "https://m.media-amazon.com/images/I/71goZuIha-L._AC_UY327_FMwebp_QL65_.jpg"
+        }
+      ]
+    },
+    {
+      "name": "muhsin",
+      "email": "muhsin@gmail.com",
+      "username": "muhsin",
+      "password": "muhsin",
+      "id": "fr34",
+      "role": "user",
+      "block": false,
+      "cart": [
+        {
+          "id": "00004",
+          "name": "Google Pixel 8 5G",
+          "description": "Powered by Google Tensor G3, with AI-powered photography and clean Android experience.",
+          "price": 56399,
+          "image": "https://m.media-amazon.com/images/I/51x3Qb8-Y+L._AC_UY327_FMwebp_QL65_.jpg",
+          "quantity": 2
+        },
+        {
+          "id": "00002",
+          "name": "Samsung Galaxy S23 Ultra",
+          "description": "Flagship device with Snapdragon 8 Gen 2, 200 MP camera, and 5000mAh battery.",
+          "price": 76999,
+          "image": "https://m.media-amazon.com/images/I/71goZuIha-L._AC_UY327_FMwebp_QL65_.jpg",
+          "quantity": 2
+        },
+        {
+          "id": "00009",
+          "name": "Motorola Edge 50 Pro",
+          "description": "Slim and powerful device with Snapdragon 8 Gen 2, edge-to-edge pOLED display, and IP68 rating.",
+          "price": 32799,
+          "image": "https://m.media-amazon.com/images/I/715aoVxQNTL._AC_UY327_FMwebp_QL65_.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "a5d6",
+      "name": "rex",
+      "username": "rex",
+      "email": "rex@gmail.com",
+      "password": "rex",
+      "role": "user",
+      "block": false,
+      "cart": [
+        {
+          "id": "00002",
+          "name": "Samsung Galaxy S23 Ultra",
+          "description": "Flagship device with Snapdragon 8 Gen 2, 200 MP camera, and 5000mAh battery.",
+          "price": 76999,
+          "image": "https://m.media-amazon.com/images/I/71goZuIha-L._AC_UY327_FMwebp_QL65_.jpg",
+          "quantity": 2
+        },
+        {
+          "id": "00003",
+          "name": "OnePlus 12",
+          "description": "Fast and smooth performance with Snapdragon 8 Gen 3, 120Hz AMOLED display, and Hasselblad cameras.",
+          "price": 63999,
+          "image": "https://m.media-amazon.com/images/I/61BAuSC0UnL._AC_UY327_FMwebp_QL65_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "00008",
+          "name": "Motorola razr 50",
+          "description": "3.6 External AMOLED Display, 6.9 AMOLED 120Hz Display, 32MP Selfie Camera.",
+          "price": 54999,
+          "image": "https://m.media-amazon.com/images/I/71AGGURIh8L._AC_UY327_FMwebp_QL65_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "00007",
+          "name": "Samsung Galaxy S24 FE",
+          "description": "Premium device with 4K OLED display, Exynos 3110, and professional-grade cameras.",
+          "price": 54688,
+          "image": "https://m.media-amazon.com/images/I/717gvwQRw7L._AC_UY327_FMwebp_QL65_.jpg  ",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "318f",
+      "name": "koru",
+      "username": "koru",
+      "email": "koru",
+      "password": "koru",
+      "role": "user",
+      "block": false,
+      "cart": [
+        {
+          "id": "00011",
+          "name": "Nothing Phone 2",
+          "description": "Minimalistic design with Snapdragon 8+ Gen 1, Glyph Interface, and OLED display.",
+          "price": 45650,
+          "image": "https://m.media-amazon.com/images/I/819VAShnDpL._AC_UY327_FMwebp_QL65_.jpg",
+          "quantity": 1
+        }
+      ]
     }
   ],
   "mobiles": [
@@ -129,7 +244,7 @@
       ],
       "totalAmount": 119900,
       "date": "24-04-2024",
-      "paymentMethode":"COD",
+      "paymentMethode": "COD",
       "deliveryAddress": {
         "name": "Abhay pc",
         "address": "Ramanattukara",
