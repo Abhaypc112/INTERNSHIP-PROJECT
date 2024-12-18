@@ -26,3 +26,7 @@ export const getUserById = async (userId)=>{
 export const getAllOrdersByUserId = async (userId) => {
     return await axios.get(`${ORDER_URL}?userId=${userId}`)
 }
+
+export const addToOrders = async (orderData) => {
+    return await axios.post(ORDER_URL, orderData)
+}
