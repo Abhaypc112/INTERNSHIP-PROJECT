@@ -1,9 +1,10 @@
 import axios from "axios";
 import React from "react";
 
-const USER_URL = "http://localhost:5000/users";
-const PRODUCT_URL = "http://localhost:5000/mobiles";
-const ORDER_URL = "http://localhost:5000/orders";
+const BASE_URL = "https://e-app-server-internship.onrender.com"
+const USER_URL = `${BASE_URL}/users`;
+const PRODUCT_URL = `${BASE_URL}/mobiles`;
+const ORDER_URL = `${BASE_URL}/orders`;
 
 // export const checkIsAdmin = async (username, password)=>{
 //     const res = await axios.get(`${URL}?username=${username}&password=${password}`)

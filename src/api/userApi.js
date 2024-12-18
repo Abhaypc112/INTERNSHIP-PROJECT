@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const USER_URL = "http://localhost:5000/users";
-const ORDER_URL = "http://localhost:5000/orders";
+const USER_URL = "https://e-app-server-internship.onrender.com/users";
+const ORDER_URL = "https://e-app-server-internship.onrender.com/orders";
 
 export const checkUsername= async (username)=>{
     const res = await axios.get(`${USER_URL}?username=${username}`);
