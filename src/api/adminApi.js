@@ -6,10 +6,6 @@ const USER_URL = `${BASE_URL}/users`;
 const PRODUCT_URL = `${BASE_URL}/mobiles`;
 const ORDER_URL = `${BASE_URL}/orders`;
 
-// export const checkIsAdmin = async (username, password)=>{
-//     const res = await axios.get(`${URL}?username=${username}&password=${password}`)
-//     return res.data.role==="admin";
-// }
 
 export const getAllUsers = async () => {
     return await axios.get(USER_URL)
