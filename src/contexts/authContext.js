@@ -13,8 +13,6 @@ export const AuthProvider = ({children})=>{
         const isUsername = await checkUsername(userData.username)
         if(!isUsername){
             const validUser = await addUser(userData);
-            console.log(validUser);
-            
             setUser(validUser);
             localStorage.setItem("user", validUser.username);
             localStorage.setItem("userId", validUser.id);
