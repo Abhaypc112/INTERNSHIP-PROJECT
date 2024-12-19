@@ -36,7 +36,7 @@ function Order() {
                                         <td>{order.date}</td>
                                         <td>{order.deliveryAddress.address}</td>
                                         <td>{order.deliveryAddress.mobile}</td>
-                                        <td>₹ {product.price * product.quantity}</td>
+                                        <td>₹ {product.price * product.quantity} <p>{order.paymentMethode}</p></td>
                                     </tr>
                                 ))
                             ))
