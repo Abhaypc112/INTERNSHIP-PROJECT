@@ -14,7 +14,8 @@ function ViewOrders() {
                 <table className='w-[80%]'>
                     <tr>
                         <th>ITEM</th>
-                        <th>NAME</th>
+                        <th>PRODUCT NAME</th>
+                        <th>USER</th>
                         <th>ADDREESS</th>
                         <th>PRICE</th>
                         <th>PAYMNET</th>
@@ -26,10 +27,11 @@ function ViewOrders() {
                             <tr key={index} className='text-center border-y-2 h-14 text-xs md:text-base'>
                               <td className='flex justify-center'><img className='w-12 h-12' src={product.image} alt="Product" /></td>
                               <td>{product.name}</td>
+                              <td>{order.deliveryAddress.name}</td>
                               <td><span className='text-xs'>{order.deliveryAddress.address}</span>
                                 <p className='text-xs'>{order.deliveryAddress.mobile}</p>
                               </td>
-                              <td>₹ {product.price}
+                              <td>₹ {product.price * product.quantity}
                                 <p className='text-xs'><span>Quantity : </span>{product.quantity}</p>
                               </td>
                               <td><span>{order.paymentMethode}</span>

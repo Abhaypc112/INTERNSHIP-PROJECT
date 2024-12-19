@@ -82,6 +82,7 @@ export const CartProvider = ({ children }) => {
     }
 
     const clearCart = async () =>{
+        setCartTotal(0);
         updateCartOnServer([]);
     }
 

@@ -51,7 +51,7 @@ function Cart() {
                                 </tr>
                                 <tr>
                                     <td></td><td></td><td></td><td></td>
-                                    <td className='flex justify-center '><button onClick={()=>navigate('/payment')} className='bg-green-500 px-2 p-1 rounded-md text-white mt-2'>Place order</button></td>
+                                    <td className='flex justify-center '><button onClick={()=>cart.length>0 ? navigate('/payment') : navigate('/')} className='bg-green-500 px-2 p-1 rounded-md text-white mt-2'>Place order</button></td>
                                 </tr>
                             </tbody>
                         </table>
